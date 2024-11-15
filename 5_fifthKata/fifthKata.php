@@ -1,5 +1,7 @@
 <?php
 
+// FIRST PART
+
 $string1 = "the_stealth_warrior";
 
 $string2 = "the-stealth-warrior";
@@ -40,3 +42,41 @@ function toCamelCase($str)
    return $camelCaseString;
 };
 
+
+// SECOND PART
+
+$string1 = "myCamelCasedString";
+
+$string2 = "myCamelHas3Humps";
+
+function kebabize($string)
+{
+
+   // Initialize an empty result string
+   $result = '';
+
+   // Loop through each character of the string
+   for ($i = 0; $i < strlen($string); $i++) {
+
+      $char = $string[$i];
+
+      // Check if the character is uppercase with UNICODE
+      if ($char >= 'A' && $char <= 'Z') {
+
+         // If it's not the first character, prepend a hyphen
+         if ($result !== '') {
+
+            $result .= '-';
+         };
+
+         // Convert uppercase to lowercase and append to the result
+         $result .= strtolower($char);
+      } elseif ($char >= 'a' && $char <= 'z') {
+
+         // Append lowercase characters directly
+         $result .= $char;
+      };
+   };
+
+   return $result;
+};
